@@ -15,8 +15,8 @@ class PL_Js_Helper {
 		// Inject premium themes logic into the themes admin page when visiting from any site on the hosted env...
 		if ($hook == 'themes.php' && defined('HOSTED_PLUGIN_KEY')) {
 			self::register_enqueue_if_not('premium', trailingslashit(PL_JS_URL) . 'admin/premium.js', array('jquery'));
-			self::register_enqueue_if_not('jquery-ui', trailingslashit(PL_JS_LIB_URL) .  'jquery-ui/js/jquery-ui-1.8.17.custom.min.js', array( 'jquery'));
-			self::register_enqueue_if_not('free-trial', trailingslashit(PL_JS_URL) .  'admin/free-trial.js', array( 'jquery-ui'));
+			// self::register_enqueue_if_not('jquery-ui', trailingslashit(PL_JS_LIB_URL) .  'jquery-ui/js/jquery-ui-1.8.17.custom.min.js', array( 'jquery'));
+			self::register_enqueue_if_not('free-trial', trailingslashit(PL_JS_URL) .  'admin/free-trial.js', array( 'jquery-ui-core'));
 			
 			// Print global JS var containing premium theme list...
 			global $PL_CUSTOMIZER_THEMES;
@@ -36,7 +36,7 @@ class PL_Js_Helper {
 
 			// Launch dialog after theme is switched...
 			if ( PL_Bootup::is_theme_switched() ) {
-	    		self::register_enqueue_if_not('theme-switch', trailingslashit(PL_JS_URL) .  'admin/theme-switch.js', array( 'jquery-ui'));  
+	    		self::register_enqueue_if_not('theme-switch', trailingslashit(PL_JS_URL) .  'admin/theme-switch.js', array( 'jquery-ui-core'));  
 	    	}
 
 	    	// Don't load any other scripts...
@@ -60,8 +60,9 @@ class PL_Js_Helper {
 
 		if (!in_array($hook, $pages)) { return; }
 		
-		self::register_enqueue_if_not('jquery-ui', trailingslashit(PL_JS_LIB_URL) .  'jquery-ui/js/jquery-ui-1.8.17.custom.min.js', array( 'jquery'));
-		self::register_enqueue_if_not('global', trailingslashit(PL_JS_URL) .  'admin/global.js', array( 'jquery-ui'));
+// 		wp_enqueue_script('jquery-ui-core');
+		//self::register_enqueue_if_not('jquery-ui', trailingslashit(PL_JS_LIB_URL) .  'jquery-ui/js/jquery-ui-1.8.17.custom.min.js', array( 'jquery'));
+		self::register_enqueue_if_not('global', trailingslashit(PL_JS_URL) .  'admin/global.js', array( 'jquery-ui-core'));
 		
 		// ob_start();
 		// pls_dump(PL_User::subscriptions());
@@ -69,21 +70,21 @@ class PL_Js_Helper {
 
 		// $sub = PL_User::subscriptions();
 		// if ( empty($sub['plan']) && $sub['eligible_for_trial'] ) {
-			self::register_enqueue_if_not('sign-up', trailingslashit(PL_JS_URL) .  'admin/sign-up.js', array( 'jquery-ui'));
-			self::register_enqueue_if_not('free-trial', trailingslashit(PL_JS_URL) .  'admin/free-trial.js', array( 'jquery-ui'));
-			self::register_enqueue_if_not('integration', trailingslashit(PL_JS_URL) .  'admin/integration.js', array( 'jquery-ui'));
-			self::register_enqueue_if_not('demo-data', trailingslashit(PL_JS_URL) .  'admin/demo-data.js', array('jquery-ui'));
+			self::register_enqueue_if_not('sign-up', trailingslashit(PL_JS_URL) .  'admin/sign-up.js', array( 'jquery-ui-dialog'));
+			self::register_enqueue_if_not('free-trial', trailingslashit(PL_JS_URL) .  'admin/free-trial.js', array( 'jquery-ui-core'));
+			self::register_enqueue_if_not('integration', trailingslashit(PL_JS_URL) .  'admin/integration.js', array( 'jquery-ui-core'));
+			self::register_enqueue_if_not('demo-data', trailingslashit(PL_JS_URL) .  'admin/demo-data.js', array('jquery-ui-core'));
 		// }
 		
 		if ($hook == 'placester_page_placester_properties') {
 			self::register_enqueue_if_not('datatables', trailingslashit(PL_JS_LIB_URL) .  'datatables/jquery.dataTables.js', array( 'jquery'));			
-			self::register_enqueue_if_not('my-listings', trailingslashit(PL_JS_URL) .  'admin/my-listings.js', array( 'jquery'));
+			self::register_enqueue_if_not('my-listings', trailingslashit(PL_JS_URL) .  'admin/my-listings.js', array( 'jquery', 'jquery-ui-datepicker'));
 		}
 
 		if ($hook == 'placester_page_placester_property_add') {						
 			self::register_enqueue_if_not('blueimp-iframe', trailingslashit(PL_JS_LIB_URL) .  'blueimp/js/jquery.iframe-transport.js', array( 'jquery'));			
 			self::register_enqueue_if_not('blueimp-file-upload', trailingslashit(PL_JS_LIB_URL) .  'blueimp/js/jquery.fileupload.js', array( 'jquery'));			
-			self::register_enqueue_if_not('add-listing', trailingslashit(PL_JS_URL) .  'admin/add-listing.js', array( 'jquery'));			
+			self::register_enqueue_if_not('add-listing', trailingslashit(PL_JS_URL) .  'admin/add-listing.js', array( 'jquery', 'jquery-ui-datepicker'));			
 		}
 
 		if ($hook == 'placester_page_placester_theme_gallery') {						
@@ -161,13 +162,13 @@ class PL_Js_Helper {
 			self::register_enqueue_if_not('onboard', trailingslashit(PL_JS_PUB_URL) . 'onboard.js', array('jquery'));
 		}
 
-		self::register_enqueue_if_not('jquery-ui', trailingslashit(PL_JS_LIB_URL) .  'jquery-ui/js/jquery-ui-1.8.17.custom.min.js', array( 'jquery'));
-		self::register_enqueue_if_not('global', trailingslashit(PL_JS_URL) .  'admin/global.js', array( 'jquery-ui'));
-		self::register_enqueue_if_not('free-trial', trailingslashit(PL_JS_URL) .  'admin/free-trial.js', array( 'jquery-ui'));
-		self::register_enqueue_if_not('integration', trailingslashit(PL_JS_URL) .  'admin/integration.js', array( 'jquery-ui'));
+		// self::register_enqueue_if_not('jquery-ui', trailingslashit(PL_JS_LIB_URL) .  'jquery-ui/js/jquery-ui-1.8.17.custom.min.js', array( 'jquery'));
+		self::register_enqueue_if_not('global', trailingslashit(PL_JS_URL) .  'admin/global.js', array( 'jquery-ui-core'));
+		self::register_enqueue_if_not('free-trial', trailingslashit(PL_JS_URL) .  'admin/free-trial.js', array( 'jquery-ui-core'));
+		self::register_enqueue_if_not('integration', trailingslashit(PL_JS_URL) .  'admin/integration.js', array( 'jquery-ui-core'));
 
 	    if ( PL_Bootup::is_theme_switched() ) {
-	    	self::register_enqueue_if_not('theme-switch', trailingslashit(PL_JS_URL) .  'admin/theme-switch.js', array( 'jquery-ui'));  
+	    	self::register_enqueue_if_not('theme-switch', trailingslashit(PL_JS_URL) .  'admin/theme-switch.js', array( 'jquery-ui-core'));  
 	    }
 	}
 
