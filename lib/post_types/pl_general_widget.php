@@ -14,10 +14,10 @@ class PL_General_Widget_CPT extends PL_Post_Base {
 			'search_map' => 'Search Map',
 			'search_form' => 'Search Form',
 			'search_listings' => 'Search Listings',
-//			'pl_neighborhood' => 'Neighborhood',
 			'listing_slideshow' => 'Listings Slideshow',
 			'featured_listings' => 'Featured Listings',
-			'static_listings' => 'List of Listings'
+			'static_listings' => 'List of Listings',
+			// 'pl_neighborhood' => 'Neighborhood'
 		);
 	// map post sub type to title
 	public static $post_types =  array(
@@ -25,9 +25,10 @@ class PL_General_Widget_CPT extends PL_Post_Base {
 			'pl_form' => 'Search Form',
 			'pl_search_listings' => 'Search Listings',
 			'pl_slideshow' => 'Slideshow',
-	//		'pl_neighborhood' => 'Neighborhood',
-			'static_listings' => 'List of Listings'
+			'static_listings' => 'List of Listings',
+			// 'pl_neighborhood' => 'Neighborhood'
 		);
+	
 	// default
 	public static $default_post_type = 'pl_map';
 
@@ -100,7 +101,7 @@ class PL_General_Widget_CPT extends PL_Post_Base {
 	}
 
 	/**
-	 * Handle cross-domain script insertion and pass back to the embedded script for the iwdget
+	 * Handle cross-domain script insertion and pass back to the embedded script for the widget
 	 */
 	public function handle_iframe_cross_domain() {
 		// don't process if widget ID is missing

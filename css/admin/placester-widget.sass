@@ -1,0 +1,295 @@
+/////////////////////////////////////////////////////////////////
+// OLD CSS (STILL BEING USED)
+/////////////////////////////////////////////////////////////////
+
+#pl-previewer-metabox-id
+  min-height: 350px
+
+.iframe-link, .shortcode-link
+  margin-top: 8px
+  padding: 0 10px 0 4px
+
+.inside strong
+  color: #777
+  padding-right: 3px
+
+#preview-wrapper
+  position: fixed
+
+#pl-previewer-metabox-id
+  position: fixed
+  width: 278px
+
+#preview-meta-widget
+  width: 250px
+  height: 250px
+  border: 1px solid gray
+  overflow: hidden
+  margin-left: 4px
+  margin-top: 9px
+
+#pl-controls-metabox-id
+  min-height: 430px
+
+.pl_template_block
+  width: 400px
+
+#pl_location_tax
+  clear: both
+
+#widget-meta-wrapper
+  .shortcode_container input.save_snippet
+    font-weight: normal
+    color: #464646
+    background: #21759b url(../images/button-grad.png) repeat-x scroll left top
+    text-shadow: none
+  section h3
+    font-size: 14px
+    padding-left: 0
+
+#minor-publishing-actions, #edit-slug-box, div.wrap a.add-new-h2
+  display: none
+
+.misc-pub-section
+  display: none
+  a.edit-timestamp
+    display: none
+  &.curtime
+    display: block
+
+#pl_static_listing_block
+  clear: both
+
+#zzpost_types_list
+  width: 400px
+  margin: 15px 3px
+
+#post_types_list
+  a
+    line-height: 19px
+    vertical-align: top
+    margin: 0px 5px
+  .post_types_list_wrapper span
+    font-size: 1.5em
+    color: #464646
+    &.pl_type_separator
+      font-size: 12px
+      line-height: 19px
+      vertical-align: top
+  .selected_type
+    line-height: 20px
+    font-weight: bold
+
+#message a
+  display: none
+
+#pl-review-wrapper
+  text-align: center
+  padding-top: 10px
+
+// @media screen and ($width-name : $target-width)
+//   #preview-wrapper
+//     position: static
+//     float: left
+
+#general_widget_zoning_types, #general_widget_purchase_types
+  display: none
+
+#general_widget_pl_template_before_block label, #general_widget_pl_template_after_block label
+  display: block
+  margin-bottom: 5px
+
+// frontend
+#full-search .form-grp:first-child
+  margin-top: 0px
+.pls_embedded_widget_wrapper .pls_search_form_listings
+  margin-bottom: 0px
+
+
+
+
+/////////////////////////////////////////////////////////////////
+// VARIABLES / MIXINS
+/////////////////////////////////////////////////////////////////
+
+$light-black: #696969
+$arial: Arial
+
+@mixin box-sizing
+  box-sizing: border-box
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+
+@mixin no-box-shadow
+  box-shadow: none !important
+  -moz-box-shadow: none !important
+  -webkit-box-shadow: none !important
+
+@mixin border-radius($radius)
+  border-radius: #{$radius}px !important
+  -moz-border-radius: #{$radius}px !important
+  -webkit-border-radius: #{$radius}px !important
+
+
+// Drop Down Styling
+@mixin chosen-container($width)
+  width: #{$width}px !important
+  font-size: 12px !important
+  // Main View
+  .chzn-single
+    padding: 3px 7px 3px 12px !important
+    +no-box-shadow
+    height: 25px !important
+    // Drop Down Button
+    div
+      b
+        width: 100% !important
+        height: 100% !important
+        margin: 0px 0px 0 0 !important
+        background-position: 0 12px !important
+    &.chzn-single-with-drop
+      div
+        background: none !important
+        b
+          -webkit-transform: rotate(-180deg)
+          -moz-transform: rotate(-180deg)
+          -ms-transform: rotate(-180deg)
+          -o-transform: rotate(-180deg)
+          filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=6)
+          background-position: 0px 10px !important
+  
+  // Chosen Drop Down
+  .chzn-drop
+    width: #{$width - 2}px !important
+    .chzn-search
+      input
+        width: #{$width - 10}px !important
+    .chzn-results
+      width: #{$width - 6}px !important
+      li
+        border: none !important
+        .group-result
+          display: block !important
+
+
+/////////////////////////////////////////////////////////////////
+// GENERAL STYLING
+/////////////////////////////////////////////////////////////////
+
+.postbox-container
+  input[type="text"]
+    height: 32px
+    padding: 0 5px
+    border: 1px solid #b0b0b0
+    color: $light-black !important
+    +no-box-shadow
+    +border-radius(3)
+    font:
+      weight: 400
+      size: 13px
+      family: Arial
+
+.added-kv-pair
+  margin: 10px 0
+  padding: 5px 0
+  height: 20px
+  font-size: 13px
+  button.delete-option
+    float: right
+  .unified-row
+    border-bottom: 1px solid #ddd
+    margin-left: 0
+    padding-right: 10px
+    box-sizing: content-box
+    -moz-box-sizing: content-box
+    -webkit-box-sizing: content-box
+
+.no-left-margin
+  margin-left: 0 !important
+
+button.green
+  text-align: center
+  color: white
+  text-decoration: none
+  padding: 8px 16px
+  background: #86B229
+  background: -moz-linear-gradient(top, #a0cc42 0%, #86b229 50%, #6e9910)
+  background: -webkit-gradient(linear, left top, left bottom, from(#a0cc42), color-stop(0.5, #86b229), to(#6e9910))
+  border-radius: 5px
+  -moz-border-radius: 5px
+  -webkit-border-radius: 5px
+  border: 1px solid #6F961C
+  text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px 1px 0px rgba(255, 255, 255, 0.3)
+  font-size: 15px
+
+
+
+/////////////////////////////////////////////////////////////////
+// EDIT SHORTCODE STYLING
+/////////////////////////////////////////////////////////////////
+
+#pl-controls-metabox-id
+  .inside
+    @import ../bootstrap
+
+#post_types_list
+  padding: 15px
+  *
+    font-family: $arial
+  input[type="text"]
+    +box-sizing
+
+  .section-label
+    margin-top: 9px
+    font:
+      family: $arial
+      size: 15px
+
+  button.delete-option
+    padding: 5px 5px 6px 5px
+    line-height: 5px
+
+  // Choose Type
+  #edit-sc-choose-type
+    margin: 5px 0
+    .chzn-container
+      +chosen-container(200)
+
+  // Choose Template
+  #edit-sc-choose-template
+    margin: 5px 0
+    .chzn-container
+      +chosen-container(260)
+    #create-new-template-link
+      font-size: 14px
+      line-height: 33px
+
+  // Choose Options
+  #edit-sc-options-listing-list
+    margin: 10px 0
+    .chzn-container
+      +chosen-container(140)
+    
+    // Added Options Single
+    // .added-options-single
+  
+  // Choose Filters
+  #edit-sc-filters-listing-list
+    margin: 10px 0
+    .chzn-container
+      +chosen-container(140)
+
+  #add-new-option, #add-new-filter
+    font-size: 11px
+    padding: 6px
+
+  #sc-add-option-value, #sc-add-filter-value
+    input
+      width: 84%
+
+  #save-sc
+    margin-top: 20px
+    button
+      float: right
+
+

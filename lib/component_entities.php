@@ -9,7 +9,7 @@ PL_Component_Entity::init();
 
 class PL_Component_Entity {
 
-	public static $defaults = array( 'twentyten', 'twentyeleven' );
+	public static $defaults = array( 'twentyten', 'twentyeleven', 'responsive_basic' );
 	
 	public static $featured_context;
 	
