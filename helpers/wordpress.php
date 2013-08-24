@@ -12,7 +12,7 @@ class PL_WordPress_Helper {
 		$theme = 'not sure';
 		//I don't believe this function is registered at the time this is hooked in. 
 		if (function_exists('wp_get_theme')) {
-			$theme = strtolower(wp_get_theme()->Template);
+			$theme = strtolower(wp_get_theme()->template);
 		}
 		$response = PL_WordPress::set(array_merge(array('theme' => $theme), array('url' => site_url() ) ) );
 		return $response;
